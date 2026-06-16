@@ -66,18 +66,66 @@ export function Landing() {
               Schedula là ứng dụng dành cho chủ spa, clinic, salon: tự động hoá lịch hẹn, theo dõi khách hàng, phát hiện xung đột bằng AI và xem doanh thu chỉ trong một cú chạm.
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8">
-              <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => setQrOpen(true)}
                 className="px-7 py-4 rounded-2xl text-white flex items-center gap-3 shadow-lg"
-                style={{ background: "linear-gradient(135deg, #22AFC2, #148a9c)", boxShadow: "0 10px 30px rgba(20,138,156,0.35)" }}>
+                style={{
+                  background: "linear-gradient(135deg, #22AFC2, #148a9c)",
+                  boxShadow: "0 10px 30px rgba(20,138,156,0.35)"
+                }}
+              >
                 <QrCode size={20} />
                 <div className="text-left">
                   <p className="text-[11px] opacity-80 leading-tight">Quét mã QR</p>
-                  <p style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 700, fontSize: 15, lineHeight: 1.1 }}>Tải Schedula miễn phí</p>
+                  <p
+                    style={{
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 15,
+                      lineHeight: 1.1
+                    }}
+                  >
+                    Tải Schedula miễn phí
+                  </p>
                 </div>
               </motion.button>
+
+              <motion.a
+                href="https://schedula-543b1.web.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="px-7 py-4 rounded-2xl bg-white text-gray-900 flex items-center gap-3 border border-[#22AFC2]/20 shadow-lg"
+                style={{
+                  boxShadow: "0 10px 30px rgba(20,138,156,0.12)"
+                }}
+              >
+                <Play size={18} style={{ color: "#148a9c" }} />
+                <div className="text-left">
+                  <p className="text-[11px] text-gray-500 leading-tight">
+                    Trải nghiệm ngay
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'Bricolage Grotesque', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 15,
+                      lineHeight: 1.1
+                    }}
+                  >
+                    Mở Web App
+                  </p>
+                </div>
+              </motion.a>
             </motion.div>
           </div>
 

@@ -183,6 +183,7 @@ export function Landing() {
       <HowItWorks />
       <FinalCTA />
       <Footer />
+      <ZaloButton />
 
       <AnimatePresence>
         {qrOpen && <QrModal onClose={() => setQrOpen(false)} />}
@@ -834,6 +835,49 @@ function QrModal({ onClose }: { onClose: () => void }) {
         </div>
       </motion.div>
     </>
+  );
+}
+// Thay số điện thoại Zalo của bạn vào đây
+const ZALO_PHONE = import.meta.env.VITE_ZALO_PHONE
+const ZALO_URL = `https://zalo.me/${ZALO_PHONE}`
+
+/* ───────────────────────────────────── ZALO FLOATING BUTTON ───────────────────────────────────── */
+function ZaloButton() {
+  return (
+    <motion.a
+      href={ZALO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#0068FF] text-white p-3 pr-5 rounded-full shadow-2xl border border-white/20 group"
+      style={{ boxShadow: "0 10px 25px rgba(0, 104, 255, 0.4)" }}
+    >
+      {/* Icon Zalo với hiệu ứng Pulse Ring */}
+      <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#0068FF] font-bold text-xs shadow-inner">
+        <motion.span
+          animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 rounded-full bg-[#0068FF] opacity-30"
+        />
+        Zalo
+      </div>
+
+      {/* Label */}
+      <div className="text-left">
+        <p className="text-[10px] text-blue-100 uppercase tracking-wider font-semibold leading-none">
+          Hỗ trợ trực tuyến
+        </p>
+        <p
+          className="text-sm font-bold leading-tight"
+          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+        >
+          Chat Zalo
+        </p>
+      </div>
+    </motion.a>
   );
 }
 

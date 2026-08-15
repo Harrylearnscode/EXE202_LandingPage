@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import svgPaths from "../../imports/Layer2/svg-6t58h8pn59";
+import posthog from 'posthog-js';
 
 function SchedulaLogo({ size = 40 }: { size?: number }) {
   return (
@@ -75,7 +76,10 @@ export function Landing() {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => setQrOpen(true)}
+                onClick={() => {
+                setQrOpen(true);
+                  posthog.capture('clicked_download_qr', { location: 'hero_section' }); 
+                }}
                 className="px-7 py-4 rounded-2xl text-white flex items-center gap-3 shadow-lg"
                 style={{
                   background: "linear-gradient(135deg, #22AFC2, #148a9c)",
@@ -102,6 +106,8 @@ export function Landing() {
                 href="https://schedula-543b1.web.app"
                 target="_blank"
                 rel="noopener noreferrer"
+                // Thêm sự kiện PostHog vào đây
+                onClick={() => posthog.capture('clicked_open_webapp', { location: 'hero_section' })} 
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="px-7 py-4 rounded-2xl bg-white text-gray-900 flex items-center gap-3 border border-[#22AFC2]/20 shadow-lg"
@@ -848,6 +854,8 @@ function ZaloButton() {
       href={ZALO_URL}
       target="_blank"
       rel="noopener noreferrer"
+      // Thêm sự kiện PostHog vào đây
+      onClick={() => posthog.capture('clicked_zalo_chat', { location: 'floating_button' })}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.1 }}

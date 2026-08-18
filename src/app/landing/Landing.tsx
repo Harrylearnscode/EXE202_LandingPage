@@ -35,7 +35,7 @@ import {
   Clock, TrendingUp, Heart, Zap, Award, ChevronDown,
 } from "lucide-react";
 
-const APP_URL = "https://pub-11955fd9a61746ba8f0108c9118b7fae.r2.dev/app-prod-release.apk";
+const APP_URL = "https://pub-11955fd9a61746ba8f0108c9118b7fae.r2.dev/Schedula-1.0.0.apk";
 const QR_SRC = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=8&data=${encodeURIComponent(APP_URL)}&color=148a9c&bgcolor=ffffff&qzone=1`;
 
 export function Landing() {   
